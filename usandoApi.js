@@ -43,8 +43,18 @@ var createUnorderedList = function(name) {
 var agregarPeliculasAlista = function(ul, peliculas) {
     var that = this;
     peliculas.forEach(element => {
-        ul.appendChild(that.createListItem(element));
+        var numeroPelicula = that.obtieneNumeroPelicula(element);
+        ul.appendChild(that.createListItem(numeroPelicula));
     });
+}
+
+/**
+ * Devuelve numero de pelicula pasando url.
+ */
+var obtieneNumeroPelicula = function(urlPelicula) {
+    return urlPelicula.substring(
+        (urlPelicula.length - 2), 
+        (urlPelicula.length - 1));
 }
 
 /**
